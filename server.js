@@ -12,8 +12,11 @@ app.post('/notes', (req, res) => {
     notes.push(req.body)
     res.json({
         message:"Note added successfully",
-        notes:notes
     })
+})
+// to get data from server use get and 
+app.get('/notes',(req,res)=>{
+    res.json(notes)
 })
 
 
