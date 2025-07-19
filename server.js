@@ -1,7 +1,6 @@
 const express = require('express')
-
 const app = express()
-
+const connectToDB = require('./src/db/db.js')
 
 const notes = []
 
@@ -20,7 +19,7 @@ app.get('/notes', (req, res) => {
 })
 
 // to delete notes use delete method and /notes/:indexvalue 
-
+connectToDB()
 app.delete('/notes/:index', (req, res) => {
     const index = req.params.index
     delete notes[index]
@@ -46,3 +45,6 @@ app.patch("/notes/:index",(req,res)=>{
 app.listen(3000, () => {
     console.log('server is running on port 3000')
 })
+
+
+
